@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/28 10:01:53 by abidaux           #+#    #+#              #
-#    Updated: 2025/09/05 19:06:43 by abidaux          ###   ########.fr        #
+#    Created: 2025/09/05 18:46:31 by abidaux           #+#    #+#              #
+#    Updated: 2025/09/05 19:08:05 by abidaux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Project name
-NAME		= megaphone
+NAME		= phonebook
 
 # Folders
 SRC_DIR		= src
@@ -23,7 +23,7 @@ OBJ_DIR		= obj
 INC_DIR		= includes
 
 # Sources
-SRC_FILES	= $(SRC_DIR)/megaphone.cpp
+SRC_FILES	= $(SRC_DIR)/phonebook.cpp
 
 # Object files
 OBJ_FILES	= $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
