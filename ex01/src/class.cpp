@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 19:13:54 by abidaux           #+#    #+#             */
-/*   Updated: 2025/09/05 20:00:11 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/09/05 20:19:39 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 contact::contact(const std::string &name, int phone_number)
 	: name(name)
-	, phone_number(GetPhoneNumber())
+	, phone_number(phone_number)
+{}
+
+contact::contact()
 {}
 
 contact::~contact()

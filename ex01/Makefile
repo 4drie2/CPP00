@@ -6,7 +6,7 @@
 #    By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 18:46:31 by abidaux           #+#    #+#              #
-#    Updated: 2025/09/05 19:08:05 by abidaux          ###   ########.fr        #
+#    Updated: 2025/09/05 20:18:38 by abidaux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ_DIR		= obj
 INC_DIR		= includes
 
 # Sources
-SRC_FILES	= $(SRC_DIR)/phonebook.cpp
+SRC_FILES	= $(SRC_DIR)/phonebook.cpp $(SRC_DIR)/class.cpp
 
 # Object files
 OBJ_FILES	= $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
