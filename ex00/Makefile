@@ -6,7 +6,7 @@
 #    By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/28 10:01:53 by abidaux           #+#    #+#              #
-#    Updated: 2025/09/03 17:52:02 by abidaux          ###   ########.fr        #
+#    Updated: 2025/09/05 18:04:04 by abidaux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-# Project name (modifiable)
+# Project name
 NAME		= megaphone
 
 # Folders
@@ -22,11 +22,11 @@ SRC_DIR		= src
 OBJ_DIR		= obj
 INC_DIR		= includes
 
-# Sources (list your .cpp files here or use wildcard for *.cpp in src/)
-SRC_FILES	= $(wildcard $(SRC_DIR)/*.cpp)
+# Sources
+SRC_FILES	= $(SRC_DIR)/megaphone.cpp
 
 # Object files
-OBJ_FILES	= $(SRC_FILES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+OBJ_FILES	= $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 # Include headers
 INCLUDES	= -I$(INC_DIR)
