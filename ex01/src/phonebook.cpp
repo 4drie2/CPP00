@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 18:48:21 by abidaux           #+#    #+#             */
-/*   Updated: 2025/09/05 20:35:26 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/09/06 21:35:38 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void instrucions(bool first_time)
 	if (first_time)
 		std::cout << "Welcome to your phonebook !" << std::endl;
 	std::cout << "You can use the following commands :" << std::endl;
-	std::cout << "ADD : Add a new contact" << std::endl;
-	std::cout << "SEARCH : Search for a contact" << std::endl;
-	std::cout << "EXIT : Exit the program" << std::endl;
+	std::cout << "\033[34m" "ADD : Add a new contact" << std::endl;
+	std::cout << "\033[32m" "SEARCH : Search for a contact" << std::endl;
+	std::cout << "\033[31m" "EXIT : Exit the program" "\033[0m" << std::endl;
 }
 
 static void add(contact *phonebook, int *current_index)
@@ -27,11 +27,12 @@ static void add(contact *phonebook, int *current_index)
 	std::string name;
 	int			phone_number;
 
-	std::cout << "Enter the name of the contact :" << std::endl;
+	std::cout << "\033[34m" "Enter the name of the contact :" << std::endl;
 	std::cin >> name;
 	phonebook[*current_index].SetName(name);
 	std::cout << "Enter the phone number of the contact :" << std::endl;
 	std::cin >> phone_number;
+	std::cout << "\033[0m";
 	phonebook[*current_index].SetPhoneNumber(phone_number);
 	*current_index = (*current_index + 1) % 8;
 }
@@ -40,7 +41,7 @@ static void search(contact *phonebook, int *current_index)
 {
 	std::string wanted_guy;
 
-	std::cout << "Enter the index of the contact you want to see :" << std::endl;
+	std::cout << "\033[32m" "Enter the index of the contact you want to see :" << std::endl;
 	std::cin >> wanted_guy;
 	if (wanted_guy == "Brayan")
 		std::cout << "Brayan is in the kitchen !" << std::endl;
@@ -52,8 +53,9 @@ static void search(contact *phonebook, int *current_index)
 			break;
 		}
 		else if (i == 7)
-			std::cout << "Contact not found :(" << std::endl;
+			std::cout << "\033[031" "Contact not found :(" "\033[0m" << std::endl;
 	}
+	std::cout << "\033[0m";
 	*current_index = (*current_index + 1) % 8;
 }
 
@@ -78,6 +80,7 @@ int	main(void)
 		else
 			instrucions(false);
 	}
+	std::cout << "\033[035" "Goodbye !" "\033[0m" << std::endl;
 
 	return (0);
 }
