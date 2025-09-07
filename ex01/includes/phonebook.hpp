@@ -14,22 +14,32 @@
 #include <string>
 #include <iostream>
 
-class contact
-{
+class Contact {
 public:
-	contact(const std::string &name, int phone_number);
-	contact();
+    Contact();
+    ~Contact();
 
-	~contact();
+    void SetName(const std::string &NewName);
+    void SetPhoneNumber(int NewPhoneNumber);
 
-
-	const	std::string &GetName() const;
-	int		GetPhoneNumber() const;
-
-	void SetName(const std::string &NewName);
-	void SetPhoneNumber(int NewPhoneNumber);
+    const std::string &GetName() const;
+    int GetPhoneNumber() const;
 
 private:
-	std::string name;
-	int	phone_number;
+    std::string name;
+    int phone_number;
+};
+
+class PhoneBook {
+public:
+    PhoneBook();
+    ~PhoneBook();
+
+    void addContact();
+    void searchContact() const;
+    void run(); // lance la boucle ADD/SEARCH/EXIT
+
+private:
+    Contact contacts[8];
+    int current_index;
 };

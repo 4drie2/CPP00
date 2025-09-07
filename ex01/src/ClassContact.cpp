@@ -12,34 +12,34 @@
 
 #include "../includes/phonebook.hpp"
 
-contact::contact(const std::string &name, int phone_number)
+Contact::Contact(const std::string &name, int phone_number)
 	: name(name)
 	, phone_number(phone_number)
 {}
 
-contact::contact()
+Contact::Contact()
 {}
 
-contact::~contact()
+Contact::~Contact()
 {
 }
 
-const	std::string &contact::GetName() const
+const	std::string &Contact::GetName() const
 {
 	return (name);
 }
 
-int	contact::GetPhoneNumber() const
+int	Contact::GetPhoneNumber() const
 {
 	return (phone_number);
 }
 
-void contact::SetName(const std::string &NewName)
+void Contact::SetName(const std::string &NewName)
 {
 	name = NewName;
 }
 
-void contact::SetPhoneNumber(int NewPhoneNumber)
+void Contact::SetPhoneNumber(int NewPhoneNumber)
 {
 	phone_number = NewPhoneNumber;
 }
