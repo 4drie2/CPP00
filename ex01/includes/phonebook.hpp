@@ -19,25 +19,28 @@ public:
     Contact();
     ~Contact();
 
+	
     void SetName(const std::string &NewName);
     void SetPhoneNumber(int NewPhoneNumber);
-
+	
     const std::string &GetName() const;
     int GetPhoneNumber() const;
-
-private:
+	
+	private:
     std::string name;
     int phone_number;
 };
 
 class PhoneBook {
-public:
+	public:
     PhoneBook();
     ~PhoneBook();
+	
+	void printInstrucions(bool first_time);
 
     void addContact();
-    void searchContact() const;
-    void run(); // lance la boucle ADD/SEARCH/EXIT
+    void searchContact();
+    void run();
 
 private:
     Contact contacts[8];

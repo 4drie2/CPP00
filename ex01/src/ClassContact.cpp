@@ -12,11 +12,6 @@
 
 #include "../includes/phonebook.hpp"
 
-Contact::Contact(const std::string &name, int phone_number)
-	: name(name)
-	, phone_number(phone_number)
-{}
-
 Contact::Contact()
 {}
 

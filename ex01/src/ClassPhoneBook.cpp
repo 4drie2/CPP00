@@ -20,22 +20,22 @@ PhoneBook::~PhoneBook()
 {
 }
 
-PhoneBook::addContact()
+void PhoneBook::addContact()
 {
 	std::string name;
 	int			phone_number;
 
 	std::cout << "\033[34m" "Enter the name of the contact :" << std::endl;
 	std::cin >> name;
-	phonebook[*current_index].SetName(name);
+	contacts[current_index].SetName(name);
 	std::cout << "Enter the phone number of the contact :" << std::endl;
 	std::cin >> phone_number;
 	std::cout << "\033[0m";
-	phonebook[*current_index].SetPhoneNumber(phone_number);
-	*current_index = (*current_index + 1) % 8;
+	contacts[current_index].SetPhoneNumber(phone_number);
+	current_index = (current_index + 1) % 8;
 }
 
-PhoneBook::searchContact() const
+void PhoneBook::searchContact()
 {
 	std::string wanted_guy;
 
@@ -45,36 +45,46 @@ PhoneBook::searchContact() const
 		std::cout << "Brayan is in the kitchen !" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
-		if (phonebook[i].GetName() == wanted_guy)
+		if (contacts[i].GetName() == wanted_guy)
 		{
-			std::cout << "index :" << i << "\nname :" << phonebook[i].GetName() << "\nphone number :" << phonebook[i].GetPhoneNumber() << std::endl;
+			std::cout << "index :" << i << "\nname :" << contacts[i].GetName() << "\nphone number :" << contacts[i].GetPhoneNumber() << std::endl;
 			break;
 		}
 		else if (i == 7)
-			std::cout << "\033[031" "Contact not found :(" "\033[0m" << std::endl;
+			std::cout << "\033[31m" "Contact not found :(" "\033[0m" << std::endl;
 	}
 	std::cout << "\033[0m";
-	*current_index = (*current_index + 1) % 8;
+	current_index = (current_index + 1) % 8;
 }
 
-PhoneBook::run()
+void PhoneBook::run()
 {
-	int	        current_index = 0;
     std::string	cdm;
 
-    instrucions(true);
+    printInstrucions(true);
     while (cdm != "EXIT")
     {
     	std::cout << std::endl << "Enter a command :";
     	std::cin >> cdm;
     	std::cout << std::endl;
     	if (cdm == "ADD")
-    		add(phonebook, &current_index);
+    		addContact();
     	else if (cdm == "SEARCH")
-    		search(phonebook, &current_index);
+    		searchContact();
     	else if (cdm == "EXIT")
     		break ;
     	else
-    		instrucions(false);
+    		printInstrucions(false);
     }
+}
+
+
+void PhoneBook::printInstrucions(bool first_time)
+{
+	if (first_time)
+		std::cout << "Welcome to your phonebook !" << std::endl;
+	std::cout << "You can use the following commands :" << std::endl;
+	std::cout << "\033[34m" "ADD : Add a new contact" << std::endl;
+	std::cout << "\033[32m" "SEARCH : Search for a contact" << std::endl;
+	std::cout << "\033[31m" "EXIT : Exit the program" "\033[0m" << std::endl;
 }
