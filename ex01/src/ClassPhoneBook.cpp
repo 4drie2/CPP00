@@ -3,36 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ClassPhoneBook.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abidaux <abidaux@student.42lehavre.fr>     +#+  +:+       +#+        */
+/*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:29:25 by abidaux           #+#    #+#             */
-/*   Updated: 2025/09/07 18:29:25 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:26:48 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/phonebook.hpp"
 
-PhoneBook::PhoneBook()
-    : current_index(0)
-{}
+PhoneBook::PhoneBook() {
+	current_index = 0;
+}
 
 PhoneBook::~PhoneBook()
 {
-}
-
-void PhoneBook::addContact()
-{
-	std::string name;
-	int			phone_number;
-
-	std::cout << "\033[34m" "Enter the name of the contact :" << std::endl;
-	std::cin >> name;
-	contacts[current_index].SetName(name);
-	std::cout << "Enter the phone number of the contact :" << std::endl;
-	std::cin >> phone_number;
-	std::cout << "\033[0m";
-	contacts[current_index].SetPhoneNumber(phone_number);
-	current_index = (current_index + 1) % 8;
 }
 
 void PhoneBook::searchContact()
@@ -54,24 +39,31 @@ void PhoneBook::searchContact()
 			std::cout << "\033[31m" "Contact not found :(" "\033[0m" << std::endl;
 	}
 	std::cout << "\033[0m";
-	current_index = (current_index + 1) % 8;
 }
 
 void PhoneBook::run()
 {
-    std::string	cdm;
+    std::string	cmd;
 
     printInstrucions(true);
-    while (cdm != "EXIT")
+    while (cmd != "EXIT")
     {
     	std::cout << std::endl << "Enter a command :";
-    	std::cin >> cdm;
+    	std::cin >> cmd;
     	std::cout << std::endl;
-    	if (cdm == "ADD")
+    	if (cmd == "ADD")
     		addContact();
-    	else if (cdm == "SEARCH")
+    	else if (cmd == "SEARCH")
     		searchContact();
-    	else if (cdm == "EXIT")
+		else if (cmd == "PRINTALL")
+		{
+			for (int i = 0; i < 8; i++)
+			{
+				std::cout << "index :" << i << "\nname :" << contacts[i].GetName() << "\nphone number :" << contacts[i].GetPhoneNumber() << std::endl;
+				std::cout << "------------------------" << std::endl;
+			}
+		}
+    	else if (cmd == "EXIT")
     		break ;
     	else
     		printInstrucions(false);
@@ -87,4 +79,9 @@ void PhoneBook::printInstrucions(bool first_time)
 	std::cout << "\033[34m" "ADD : Add a new contact" << std::endl;
 	std::cout << "\033[32m" "SEARCH : Search for a contact" << std::endl;
 	std::cout << "\033[31m" "EXIT : Exit the program" "\033[0m" << std::endl;
+}
+
+int const PhoneBook::getCurrentIndex() const
+{
+	return (current_index);
 }
