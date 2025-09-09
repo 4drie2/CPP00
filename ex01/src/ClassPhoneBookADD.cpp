@@ -20,6 +20,7 @@ static void PrintEmptyFieldError(const std::string &field_name)
 static void NewFirstName(Contact &contacts)
 {
 	std::string name;
+
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the first name of the contact :" << std::endl;
@@ -86,7 +87,7 @@ static void NewDarkestSecret(Contact &contacts)
 
 void PhoneBook::addContact()
 {
-
+	std::cout << "\033[2J";
 	NewFirstName(contacts[current_index]);
 	NewLastName(contacts[current_index]);
 	NewNickname(contacts[current_index]);

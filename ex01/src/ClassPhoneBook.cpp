@@ -20,27 +20,6 @@ PhoneBook::~PhoneBook()
 {
 }
 
-void PhoneBook::searchContact()
-{
-	std::string wanted_guy;
-
-	std::cout << "\033[32m" "Enter the index of the contact you want to see :" << std::endl;
-	std::cin >> wanted_guy;
-	if (wanted_guy == "Brayan")
-		std::cout << "Brayan is in the kitchen !" << std::endl;
-	for (int i = 0; i < 8; i++)
-	{
-		if (contacts[i].GetName() == wanted_guy)
-		{
-			std::cout << "index :" << i << "\nname :" << contacts[i].GetName() << "\nphone number :" << contacts[i].GetPhoneNumber() << std::endl;
-			break;
-		}
-		else if (i == 7)
-			std::cout << "\033[31m" "Contact not found :(" "\033[0m" << std::endl;
-	}
-	std::cout << "\033[0m";
-}
-
 void PhoneBook::run()
 {
     std::string	cmd;
@@ -55,14 +34,6 @@ void PhoneBook::run()
     		addContact();
     	else if (cmd == "SEARCH")
     		searchContact();
-		else if (cmd == "PRINTALL")
-		{
-			for (int i = 0; i < 8; i++)
-			{
-				std::cout << "index :" << i << "\nname :" << contacts[i].GetName() << "\nphone number :" << contacts[i].GetPhoneNumber() << std::endl;
-				std::cout << "------------------------" << std::endl;
-			}
-		}
     	else if (cmd == "EXIT")
     		break ;
     	else
