@@ -54,14 +54,15 @@ void PhoneBook::searchContact()
         std::cout << "\033[31m" "The phonebook is empty, please add a contact first." "\033[0m" << std::endl;
         return;
     }
-    std::cout << "     Index|First Name| Last Name|  Nickname";
+    std::cout <<    "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (int i = 0; i < 8; i++)
     {
-        std::cout << formatField(std::to_string(i)) << "|"
-                  << formatField(contacts[i].GetFirstName()) << "|"
-                  << formatField(contacts[i].GetLastName()) << "|"
-                  << formatField(contacts[i].GetNickname()) << std::endl;
-        std::cout << "------------------------" << std::endl;
+        std::cout << "|"
+        << formatField(std::to_string(i)) << "|"
+        << formatField(contacts[i].GetFirstName()) << "|"
+        << formatField(contacts[i].GetLastName()) << "|"
+        << formatField(contacts[i].GetNickname()) << "|" << std::endl;
+        std::cout <<    "---------------------------------------------" << std::endl;
         if (contacts[i + 1].GetFirstName().empty())
             break;
     }
