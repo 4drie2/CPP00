@@ -24,6 +24,7 @@ static void NewFirstName(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the first name of the contact :";
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("first name");
@@ -37,6 +38,7 @@ static void NewLastName(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the last name of the contact :";
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("last name");
@@ -50,6 +52,7 @@ static void NewNickname(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the nickname of the contact :";
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("nickname");
@@ -63,6 +66,7 @@ static void NewPhoneNumber(Contact &contacts)
 	while (phone_number.empty() || (phone_number.find_first_not_of("0123456789 ") != std::string::npos))
 	{
 		std::cout << "\033[34m" "Enter the phone number of the contact : +33 0";
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, phone_number);
 		if (phone_number.empty())
 			PrintEmptyFieldError("phone number");

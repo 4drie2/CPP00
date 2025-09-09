@@ -27,6 +27,7 @@ static int WantedGuyIndex(Contact contacts[8])
     std::cout << "\033[34m" "Enter the index of the contact you want to see more details about :" << std::endl;
     while (true)
     {
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin >> wanted_guy;
         if (std::cin.fail() || wanted_guy < 0 || wanted_guy >= 8 || contacts[wanted_guy].GetFirstName().empty())
             std::cout << "\033[31m" "Invalid index.\n please retry :" "\033[0m" << std::endl;

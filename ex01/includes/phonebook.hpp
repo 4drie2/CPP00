@@ -13,6 +13,7 @@
 # pragma once
 #include <string>
 #include <iostream>
+#include <limits>
 
 class Contact {
 public:
