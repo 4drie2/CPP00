@@ -26,6 +26,8 @@ INC_DIR		= includes
 SRC_FILES	=	$(SRC_DIR)/phonebook.cpp \
 				$(SRC_DIR)/ClassContact.cpp \
 				$(SRC_DIR)/ClassPhoneBook.cpp
+				$(SRC_DIR)/ClassPhoneBookADD.cpp \
+				$(SRC_DIR)/ClassPhoneBookSEARCH.cpp
 
 # Object files
 OBJ_FILES	= $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
