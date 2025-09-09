@@ -28,7 +28,6 @@ void PhoneBook::run()
     while (cmd != "EXIT")
     {
     	std::cout << std::endl << "Enter a command :";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     	std::getline(std::cin, cmd);
     	std::cout << std::endl;
     	if (cmd == "ADD")

@@ -17,6 +17,18 @@ static void PrintEmptyFieldError(const std::string &field_name)
 	std::cout << "\033[31m" << field_name << " cannot be empty" "\033[0m" << std::endl;
 }
 
+static bool isValidName(const std::string &s)
+{
+    if (s.empty())
+        return false;
+    for (std::string::size_type i = 0; i < s.size(); ++i)
+        if (!std::isalpha(s[i]) && s[i] != '-' && s[i] != ' ')
+            return (false);
+    return (true);
+}
+
+}
+
 static void NewFirstName(Contact &contacts)
 {
 	std::string name;
@@ -24,7 +36,6 @@ static void NewFirstName(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the first name of the contact :";
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("first name");
@@ -38,7 +49,6 @@ static void NewLastName(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the last name of the contact :";
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("last name");
@@ -52,7 +62,6 @@ static void NewNickname(Contact &contacts)
 	while (name.empty())
 	{
 		std::cout << "\033[34m" "Enter the nickname of the contact :";
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, name);
 		if (name.empty())
 			PrintEmptyFieldError("nickname");
@@ -66,11 +75,10 @@ static void NewPhoneNumber(Contact &contacts)
 	while (phone_number.empty() || (phone_number.find_first_not_of("0123456789 ") != std::string::npos))
 	{
 		std::cout << "\033[34m" "Enter the phone number of the contact : +33 0";
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::getline(std::cin, phone_number);
 		if (phone_number.empty())
 			PrintEmptyFieldError("phone number");
-		if (phone_number.find_first_not_of("0123456789 ") != std::string::npos)
+		if (phone_number.find_first_not_of("0123456789 .") != std::string::npos)
 			std::cout << "\033[31m" "Hmm, I\'m not sure that\'s a phone number." "\033[0m" << std::endl;
 	}
 	contacts.SetPhoneNumber(phone_number);
