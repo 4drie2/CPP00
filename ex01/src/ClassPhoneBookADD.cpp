@@ -87,7 +87,7 @@ static void NewDarkestSecret(Contact &contacts)
 
 void PhoneBook::addContact()
 {
-	std::cout << "\033[2J";
+	std::cout << "\033[2J\033[1;1H";
 	NewFirstName(contacts[current_index]);
 	NewLastName(contacts[current_index]);
 	NewNickname(contacts[current_index]);

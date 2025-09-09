@@ -27,7 +27,7 @@ static int WantedGuyIndex(Contact contacts[8])
     std::cout << "\033[34m" "Enter the index of the contact you want to see more details about :" << std::endl;
     while (true)
     {
-        std::getline(std::cin, wanted_guy);
+        std::cin >> wanted_guy;
         if (std::cin.fail() || wanted_guy < 0 || wanted_guy >= 8 || contacts[wanted_guy].GetFirstName().empty())
             std::cout << "\033[31m" "Invalid index.\n please retry :" "\033[0m" << std::endl;
         else
@@ -48,6 +48,7 @@ static void printContactDetails(const Contact &contact)
 
 void PhoneBook::searchContact()
 {
+	std::cout << "\033[2J\033[1;1H";
     if (contacts[0].GetFirstName().empty())
     {
         std::cout << "\033[31m" "The phonebook is empty, please add a contact first." "\033[0m" << std::endl;
