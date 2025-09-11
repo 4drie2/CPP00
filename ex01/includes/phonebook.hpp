@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
+#include <sstream>
 
 class Contact {
 public:
@@ -53,7 +54,7 @@ class PhoneBook {
 	void searchContact();
 	void run();
 
-	int const getCurrentIndex() const;
+	int getCurrentIndex() const;
 
 	private:
 	Contact contacts[8];

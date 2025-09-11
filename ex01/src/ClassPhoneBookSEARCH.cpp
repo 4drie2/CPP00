@@ -12,9 +12,15 @@
 
 #include "../includes/phonebook.hpp"
 
+static std::string intToString(int n) {
+    std::ostringstream oss;
+    oss << n;
+    return oss.str();
+}
+
 static std::string formatField(const std::string &text)
 {
-    if (text.length() >= 10)
+    if (text.length() > 10)
         return text.substr(0, 9) + ".";
     else
         return std::string(10 - text.length(), ' ') + text;
@@ -43,7 +49,7 @@ static void printContactDetails(const Contact &contact)
     std::cout << "\033[34m" "First Name: " << "\033[0m" << contact.GetFirstName() << std::endl;
     std::cout << "\033[34m" "Last Name: " << "\033[0m" << contact.GetLastName() << std::endl;
     std::cout << "\033[34m" "Nickname: " << "\033[0m" << contact.GetNickname() << std::endl;
-    std::cout << "\033[34m" "Phone Number: " << "\033[0m" << contact.GetPhoneNumber() << std::endl;
+    std::cout << "\033[34m" "Phone Number: " << "\033[0m" << "+33 0" << contact.GetPhoneNumber() << std::endl;
     std::cout << "\033[34m" "Darkest Secret: " << "\033[0m" << contact.GetDarkestSecret() << std::endl;
 }
 
@@ -59,7 +65,7 @@ void PhoneBook::searchContact()
 	for (int i = 0; i < 8; i++)
     {
         std::cout << "|"
-        << formatField(std::to_string(i)) << "|"
+        << formatField(intToString(i)) << "|"
         << formatField(contacts[i].GetFirstName()) << "|"
         << formatField(contacts[i].GetLastName()) << "|"
         << formatField(contacts[i].GetNickname()) << "|" << std::endl;

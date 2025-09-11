@@ -25,7 +25,7 @@ INC_DIR		= includes
 # Sources
 SRC_FILES	=	$(SRC_DIR)/phonebook.cpp \
 				$(SRC_DIR)/ClassContact.cpp \
-				$(SRC_DIR)/ClassPhoneBook.cpp
+				$(SRC_DIR)/ClassPhoneBook.cpp \
 				$(SRC_DIR)/ClassPhoneBookADD.cpp \
 				$(SRC_DIR)/ClassPhoneBookSEARCH.cpp
 

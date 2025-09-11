@@ -52,7 +52,7 @@ void PhoneBook::printInstrucions(bool first_time)
 	std::cout << "\033[31m" "EXIT : Exit the program" "\033[0m" << std::endl;
 }
 
-int const PhoneBook::getCurrentIndex() const
+int PhoneBook::getCurrentIndex() const
 {
 	return (current_index);
 }
